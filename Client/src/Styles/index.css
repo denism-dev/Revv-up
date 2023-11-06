@@ -1,0 +1,59 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+    background: #f3f3f3;
+}
+
+@layer components {
+    .nav-btn {
+        @apply px-[25px] py-[4px] border border-blue-400 text-blue-400 rounded hover:bg-blue-300 hover:text-white bg-white;
+    }
+
+    .nav-btn.active {
+        @apply px-[25px] py-[4px] bg-blue-400 hover:bg-blue-300 text-white rounded;
+    }
+}
+
+.text-container {
+    height: fit-content;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.vehicle-card-display {
+    transition: all ease 250ms;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.form-holder {
+    @apply px-[20px];
+}
+
+.form-holder input:not(input[type='radio']), .form-holder select, .form-holder textarea {
+    width: 250px;
+}
+
+.form-holder > div {
+    @apply px-[20px] w-[100%] md:w-[600px] mx-[auto] mb-[50px];
+}
+
+.form-holder > div > form {
+    @apply w-[100%] rounded bg-white shadow-xl border py-[20px] px-[10px];
+}
+
+form > div {
+    @apply flex items-start mb-[20px] justify-center;
+}
+
+form > div > input {
+    @apply mb-[10px] max-w-[100px] !important;
+}
+
+.active-image {
+    @apply border-[3px] border-blue-400;
+}
