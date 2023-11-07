@@ -1,8 +1,9 @@
 import Navigation from "./Navigation/Navigation.jsx";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {VehicleCard} from "./AppComponents/VehicleCard.jsx";
-import {NavLink} from "react-router-dom";
+import { VehicleCard } from "./AppComponents/VehicleCard.jsx";
+import { NavLink } from "react-router-dom";
+import Footer from "./Footer/Footer.jsx";
 
 function HomePage() {
     const host = "http://localhost:3000"
@@ -22,10 +23,10 @@ function HomePage() {
     }, []);
 
     //sorting effect
-    useEffect(() => {sortVehicles()}, [sortCriteria]);
+    useEffect(() => { sortVehicles() }, [sortCriteria]);
 
     //searching effect
-    useEffect(() => {handleSearchResults()}, [searchQuery]);
+    useEffect(() => { handleSearchResults() }, [searchQuery]);
 
     let render
 
@@ -107,12 +108,12 @@ function HomePage() {
     return (
 
         <>
-            <Navigation searchQuery={searchQuery} dipatchSearch={searching}/>
+            <Navigation searchQuery={searchQuery} dipatchSearch={searching} />
             <div className="container p-[10px]">
-                <div className="hero rounded flex items-center flex-col justify-center h-[200px] mx-[10px] bg-blue-100">
+                <div className="hero rounded flex items-center flex-col justify-center h-[fit-content] mx-[10px] p-[10px] bg-blue-100">
                     <h1 className="h2 text-center mb-[15px]">Welcome to Revv Up</h1>
-                    <p className="mb-[20px]">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque consectetur.
+                    <p className="m-[20px] px-[50px] text-center">
+                        Discover your perfect ride on our Vehicle Listing Website! We offer a diverse range of vehicles, from sleek sedans to rugged trucks and eco-friendly hybrids. Find your ideal match with easy search options, detailed listings, and high-quality images. Whether you're buying or selling, our platform prioritizes transparency and user satisfaction for a hassle-free experience.
                     </p>
                     <div className="flex justify-around w-[100%]">
                         <button
@@ -138,6 +139,8 @@ function HomePage() {
             <div className="container px-[20px] pt-[20px]">
                 {render}
             </div>
+            <Footer />
+
         </>
     )
 }
